@@ -1,0 +1,51 @@
+@utility toast {
+  @apply h-14 px-3 rounded-lg f-align gap-3;
+}
+
+@utility toast-fill {
+  @apply toast; /* Extend */
+
+  @apply bg-palette text-background;
+}
+
+@utility toast-glass {
+  @apply toast; /* Extend */
+
+  @apply bg-palette/10 backdrop-blur-sm;
+}
+
+@utility toast-icon {
+  @apply compatible-icon;
+}
+
+@utility toast-icon-info {
+  @apply toast-icon; /* Extend */
+
+  &:not(&:where(.toast-fill &)) {
+    @apply text-palette;
+  }
+}
+
+@utility toast-icon-success {
+  @apply toast-icon; /* Extend */
+
+  &:not(&:where(.toast-fill &)) {
+    @apply text-success;
+  }
+}
+
+@utility toast-icon-warning {
+  @apply toast-icon; /* Extend */
+
+  &:not(&:where(.toast-fill &)) {
+    @apply text-warning;
+  }
+}
+
+@utility toast-icon-error {
+  @apply toast-icon; /* Extend */
+
+  &:not(&:where(.toast-fill &)) {
+    @apply text-danger;
+  }
+}
