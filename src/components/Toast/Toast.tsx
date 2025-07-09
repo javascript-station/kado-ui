@@ -5,36 +5,36 @@ import { createPortal } from "react-dom";
 import { useMounted } from "@mantine/hooks";
 import { motion, AnimatePresence } from "framer-motion";
 
-import Box from "./Box";
-import { ToastT } from "./types";
-import { useStore } from "./store";
+import ToastBox from "./ToastBox";
+import { ToastT } from "./toastTypes";
+import { useToastStore } from "./toastStore";
 
-type IndexPropsT = {
-  defaultDuration?: ToastT["duration"]
-}
+type ToastPropsT = {
+  defaultDuration?: ToastT["duration"];
+};
 
-function Index({ defaultDuration }: IndexPropsT) {
+function Toast({ defaultDuration }: ToastPropsT) {
   const mounted = useMounted();
 
-  const toasts = useStore(store => store.toasts);
-  const remove = useStore(store => store.remove);
+  const toasts = useToastStore(store => store.toasts);
+  const remove = useToastStore(store => store.remove);
 
   useEffect(() => {
     if (!toasts.length) {
       return;
-    }
+    };
 
     const lastToast = toasts[toasts.length - 1];
 
     const duration = lastToast.duration || defaultDuration || 2_000;
     setTimeout(() => {
-      remove(lastToast.id)
-    }, duration)
-  }, [toasts])
+      remove(lastToast.id);
+    }, duration);
+  }, [toasts]);
 
   if (!mounted) {
     return null;
-  }
+  };
 
   return createPortal(
     <>
@@ -48,7 +48,7 @@ function Index({ defaultDuration }: IndexPropsT) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0 }}
             >
-              <Box toast={item} />
+              <ToastBox toast={item} />
             </motion.div>
           ))}
         </AnimatePresence>
@@ -58,4 +58,4 @@ function Index({ defaultDuration }: IndexPropsT) {
   )
 }
 
-export default Index;
+export default Toast;

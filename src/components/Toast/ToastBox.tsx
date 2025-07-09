@@ -1,12 +1,12 @@
 import { CheckIcon, CircleAlertIcon, TriangleAlertIcon, XIcon } from "lucide-react";
 
-import { ToastT } from "./types";
+import { ToastT } from "./toastTypes";
 
-type BoxPropsT = {
-  toast: ToastT
-}
+type ToastBoxPropsT = {
+  toast: ToastT;
+};
 
-function Box({ toast }: BoxPropsT) {
+function ToastBox({ toast }: ToastBoxPropsT) {
   let toastIcon = null;
 
   switch (toast.status) {
@@ -45,4 +45,4 @@ function Box({ toast }: BoxPropsT) {
   )
 }
 
-export default Box
+export default ToastBox;
