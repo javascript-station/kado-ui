@@ -1,0 +1,45 @@
+/* Input wrapper */
+@utility input {
+  @apply ring-4 ring-transparent w-full flex rounded-lg h-9 text-base gap-3 cursor-pointer transition-all origin-bottom active:scale-90 relative disabled:opacity-50 disabled:cursor-not-allowed;
+
+  &:has(input) {
+    @apply items-center px-3;
+  }
+
+  &:has(textarea) {
+    @apply h-[33vh] p-3;
+  }
+}
+
+/* Variants */
+@utility input-outline {
+  @apply input; /* Extend */
+
+  @apply border
+  text-palette
+  border-palette
+  not-focus-within:hover:bg-palette/10
+  focus-within:ring-palette/20;
+}
+
+@utility input-soft {
+  @apply input; /* Extend */
+
+  @apply text-palette
+  not-focus-within:bg-palette/10
+  not-focus-within:hover:bg-palette/20
+  focus-within:ring-palette/20;
+}
+
+@utility input-ghost {
+  @apply input; /* Extend */
+
+  @apply text-palette
+  not-focus-within:hover:bg-palette/10
+  focus-within:ring-palette/20;
+}
+
+/* Main field */
+@utility input-field {
+  @apply bg-transparent w-full h-full;
+}
