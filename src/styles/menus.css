@@ -1,0 +1,15 @@
+@utility menu {
+  @apply bg-palette/10 p-3 rounded-lg w-fit;
+}
+
+@utility menu-y {
+  @apply menu; /* Extend */
+
+  @apply space-y-3;
+}
+
+@utility menu-x {
+  @apply menu; /* Extend */
+
+  @apply f-align gap-3;
+}
