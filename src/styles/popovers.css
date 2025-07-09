@@ -1,0 +1,75 @@
+/*
+  Primary class
+  The popover container should have `group/popover` class and be `absolute` or `relative`
+*/
+@utility popover {
+  @apply absolute w-max max-w-[200%] opacity-0 scale-0 invisible p-1.5 group-hover/popover:opacity-100 group-hover/popover:visible group-hover/popover:scale-100 transition-all;
+}
+/* --- */
+
+@utility popover-t {
+  @apply popover; /* Extend */
+
+  @apply top-out left-center origin-bottom;
+}
+
+@utility popover-tr {
+  @apply popover; /* Extend */
+
+  @apply top-out right-out origin-bottom-left;
+}
+
+@utility popover-r {
+  @apply popover; /* Extend */
+
+  @apply top-center right-out origin-left;
+}
+
+@utility popover-br {
+  @apply popover; /* Extend */
+
+  @apply bottom-out right-out origin-top-left;
+}
+
+@utility popover-b {
+  @apply popover; /* Extend */
+
+  @apply bottom-out left-center origin-top;
+}
+
+@utility popover-bl {
+  @apply popover; /* Extend */
+
+  @apply bottom-out left-out origin-top-right;
+}
+
+@utility popover-l {
+  @apply popover; /* Extend */
+
+  @apply top-center left-out origin-right;
+}
+
+@utility popover-tl {
+  @apply popover; /* Extend */
+
+  @apply top-out left-out origin-bottom-right;
+}
+/* --- */
+
+/* Variants */
+@utility popover-content {
+  @apply p-3 rounded-lg;
+}
+
+@utility popover-content-fill {
+  @apply popover-content; /* Extend */
+
+  @apply bg-palette text-background;
+}
+
+@utility popover-content-glass {
+  @apply popover-content; /* Extend */
+
+  @apply bg-palette/10 text-palette backdrop-blur-sm;
+}
+/* --- */
