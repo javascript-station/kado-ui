@@ -1,0 +1,65 @@
+/* Primary class */
+@utility indicator {
+  @apply text-xs p-0.5 rounded-full absolute;
+}
+/* --- */
+
+/* Positions */
+@utility indicator-t {
+  @apply indicator; /* Extend */
+
+  @apply top-boundary left-center;
+}
+
+@utility indicator-tr {
+  @apply indicator; /* Extend */
+
+  @apply top-boundary right-boundary;
+}
+
+@utility indicator-r {
+  @apply indicator; /* Extend */
+
+  @apply right-boundary top-center;
+}
+
+@utility indicator-br {
+  @apply indicator; /* Extend */
+
+  @apply bottom-boundary right-boundary;
+}
+
+@utility indicator-b {
+  @apply indicator; /* Extend */
+
+  @apply bottom-boundary left-center;
+}
+
+@utility indicator-bl {
+  @apply indicator; /* Extend */
+
+  @apply bottom-boundary left-boundary;
+}
+
+@utility indicator-l {
+  @apply indicator; /* Extend */
+
+  @apply top-center left-boundary;
+}
+
+@utility indicator-tl {
+  @apply indicator; /* Extend */
+
+  @apply top-boundary left-boundary;
+}
+/* --- */
+
+/* Variants */
+@utility indicator-fill {
+  @apply bg-palette text-background;
+}
+
+@utility indicator-glass {
+  @apply bg-palette/10 text-palette backdrop-blur-sm;
+}
+/* --- */
