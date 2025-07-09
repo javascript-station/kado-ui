@@ -4,3 +4,15 @@
   text-palette
   bg-palette/10;
 }
+
+@utility badge-fill {
+  @apply badge; /* Extend */
+
+  @apply bg-palette text-background;
+}
+
+@utility badge-glass {
+  @apply badge; /* Extend */
+
+  @apply text-palette bg-palette/10 backdrop-blur-sm;
+}
