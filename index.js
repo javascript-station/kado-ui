@@ -2,9 +2,11 @@
 // index.js
 import path from "path";
 import chalk from "chalk";
+import fs from "fs-extra";
 import { Command } from "commander";
 import { fileURLToPath } from "url";
-import { writeJson, pathExists, copy } from "fs-extra";
+
+const { writeJson, pathExists, copy } = fs;
 
 const program = new Command();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
