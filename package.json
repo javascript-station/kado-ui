@@ -1,6 +1,6 @@
 {
   "name": "kado-ui",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "React and Tailwind UI library",
   "license": "ISC",
   "author": "javascript-station",
@@ -12,20 +12,21 @@
     "kado-ui"
   ],
   "dependencies": {
-    "fs-extra": "^11.1.1",
-    "prompts": "^2.4.2",
     "chalk": "^5.3.0",
+    "commander": "^14.0.0",
+    "framer-motion": "^12.23.0",
+    "fs-extra": "^11.1.1",
+    "lucide-react": "^0.525.0",
+    "nanoid": "^5.1.5",
+    "prompts": "^2.4.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "framer-motion": "^12.23.0",
-    "zustand": "^5.0.6",
-    "lucide-react": "^0.525.0",
-    "nanoid": "^5.1.5"
+    "zustand": "^5.0.6"
   },
   "devDependencies": {
-    "typescript": "^5.8.3",
     "@types/node": "^24.0.10",
     "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6"
+    "@types/react-dom": "^19.1.6",
+    "typescript": "^5.8.3"
   }
 }

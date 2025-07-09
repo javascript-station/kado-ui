@@ -1,42 +1,90 @@
 #!/usr/bin/env node
-
+// index.js
 import path from "path";
 import chalk from "chalk";
-import prompts from "prompts";
-import { copy } from "fs-extra";
+import { Command } from "commander";
 import { fileURLToPath } from "url";
+import { writeJson, pathExists, copy } from "fs-extra";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const program = new Command();
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const CONFIG_FILE = "kado-ui.json";
 
-const srcRoot = path.join(__dirname, "src");
+//
+// 1) INIT COMMAND
+//
+program
+  .command("init")
+  .description("Create a kado-ui.json config in your project root")
+  .action(async () => {
+    const configPath = path.resolve(process.cwd(), CONFIG_FILE);
+    if (await pathExists(configPath)) {
+      console.log(chalk.yellow("⚠️  kado-ui.json already exists — no action taken."));
+      process.exit(1);
+    }
 
-async function main() {
-  console.log(chalk.cyan("Hello, welcome to kado-ui 🎁"));
+    const defaultConfig = {
+      cssDir: "styles/kado-ui",
+      componentsDir: "components/kado-ui",
+    };
 
-  const { targetPath } = await prompts({
-    type: "text",
-    name: "targetPath",
-    message: "Where do you want to copy the css and component files?",
-    initial: "src",
+    await writeJson(configPath, defaultConfig, { spaces: 2 });
+    console.log(chalk.green(`✅  Created ${CONFIG_FILE} with default paths:`));
+    console.log(defaultConfig);
   });
 
-  const userPath = path.resolve(process.cwd(), targetPath);
+//
+// 2) ADD COMMAND
+//
+program
+  .command("add <templateFile>")
+  .description("Add a CSS/component file into your project")
+  .action(async (templateFile) => {
+    const projectRoot = process.cwd();
+    const configPath = path.join(projectRoot, CONFIG_FILE);
 
-  const foldersToCopy = ["styles", "components"];
-
-  for (const folder of foldersToCopy) {
-    const srcFolder = path.join(srcRoot, folder);
-    const destFolder = path.join(userPath, folder);
-    try {
-      await copy(srcFolder, destFolder, { overwrite: false });
-      console.log(chalk.green(`✅ Copied ${folder} to ${targetPath}/${folder}`));
-    } catch (err) {
-      console.error(chalk.red(`❌ Failed to copy ${folder}: ${err.message}`));
+    if (!(await pathExists(configPath))) {
+      console.log(
+        chalk.red(`❌  No ${CONFIG_FILE} found. Run \`npx kado-ui init\` first.`)
+      );
+      process.exit(1);
     }
-  }
 
-  console.log(chalk.blue("\n🎉 Done!"));
-}
+    // load user config
+    const config = await import(`file://${configPath}`).then((m) => m.default || m);
 
-main();
+    // figure out where to copy:
+    const ext = path.extname(templateFile).toLowerCase();
+    let targetDir;
+    if (ext === ".css") targetDir = config.cssDir;
+    else if (templateFile.endsWith(".tsx")) {
+      // you might inspect filename for 'hook' vs 'component'
+      if (/hook/i.test(templateFile)) targetDir = config.hooksDir;
+      else targetDir = config.componentsDir;
+    } else if (templateFile.endsWith(".ts")) targetDir = config.utilsDir;
+    else {
+      console.log(chalk.red(`❌  Don’t know where to put “${templateFile}”.`));
+      process.exit(1);
+    }
+
+    const srcPath = path.join(__dirname, "src", templateFile);
+    const destPath = path.join(projectRoot, targetDir, templateFile);
+
+    if (!(await pathExists(srcPath))) {
+      console.log(chalk.red(`❌  Template "${templateFile}" not found in CLI bundle.`));
+      process.exit(1);
+    }
+
+    await copy(srcPath, destPath, { overwrite: false });
+    console.log(chalk.green(`✅  "${templateFile}" copied to ${targetDir}`));
+  });
+
+//
+// 3) ERROR & HELP
+//
+program.on("command:*", () => {
+  console.error(chalk.red(`❌  Unknown command: ${program.args.join(" ")}`));
+  program.help({ error: true });
+});
+
+program.parse(process.argv);
