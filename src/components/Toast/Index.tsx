@@ -1,26 +1,23 @@
 "use client";
 
+import { useEffect } from "react";
 import { createPortal } from "react-dom";
-import { useEffect, useState } from "react";
+import { useMounted } from "@mantine/hooks";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Box from "./Box";
 import { ToastT } from "./types";
-import { useToast } from "./store";
+import { useStore } from "./store";
 
 type IndexPropsT = {
   defaultDuration?: ToastT["duration"]
 }
 
-function Toaster({ defaultDuration }: IndexPropsT) {
-  const toasts = useToast(store => store.toasts);
-  const remove = useToast(store => store.remove);
+function Index({ defaultDuration }: IndexPropsT) {
+  const mounted = useMounted();
 
-  const [isClient, setClient] = useState(false);
-
-  useEffect(() => {
-    setClient(true)
-  }, [])
+  const toasts = useStore(store => store.toasts);
+  const remove = useStore(store => store.remove);
 
   useEffect(() => {
     if (!toasts.length) {
@@ -29,16 +26,13 @@ function Toaster({ defaultDuration }: IndexPropsT) {
 
     const lastToast = toasts[toasts.length - 1];
 
-    const duration = lastToast.duration || defaultDuration || 1_000;
-
-    console.log(duration);
-
+    const duration = lastToast.duration || defaultDuration || 2_000;
     setTimeout(() => {
       remove(lastToast.id)
     }, duration)
   }, [toasts])
 
-  if (!isClient) {
+  if (!mounted) {
     return null;
   }
 
@@ -64,4 +58,4 @@ function Toaster({ defaultDuration }: IndexPropsT) {
   )
 }
 
-export default Toaster;
+export default Index;
