@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@import "./styles/base.css";
+@import "./styles/palettes.css";
+@import "./styles/utilities.css";
+@import "./styles/buttons.css";
+@import "./styles/inputs.css";
+@import "./styles/badges.css";
+@import "./styles/indicators.css";
+@import "./styles/menus.css";
+@import "./styles/popovers.css";
+@import "./styles/toast.css";
+@import "./styles/other.css";
+
+/* 
+  UI system spacing:
+    lvl-1: 0.5
+    lvl-2: 1.5
+    lvl-3: 3
+    lvl-4: 6
+    lvl-5: 9
+
+  Color shades:
+    lvl-1: 100%
+    lvl-2: 90%
+    lvl-3: 50%
+    lvl-4: 20%
+    lvl-5: 10%
+
+  Z-index layers:
+    lvl-1: 10
+    lvl-2: 20
+    lvl-3: 30
+    lvl-4: 40
+    lvl-5: 50
+
+  Radius:
+    lvl-1: rounded
+    lvl-2: rounded-md
+    lvl-3: rounded-lg
+    lvl-4: rounded-xl
+    lvl-5: rounded-2xl
+
+  Heading:
+    lvl-1: text-base
+    lvl-2: text-lg
+    lvl-3: text-xl
+    lvl-4: text-2xl
+    lvl-5: text-3xl
+
+  Paragraph:
+    lvl-1: text-xs
+    lvl-2: text-sm
+    lvl-3: text-base
+    lvl-4: text-lg
+    lvl-5: text-xl
+*/
+
+@theme {
+  /* Initial configs */
+  --color-*: initial;
+
+  /* Colors */
+  --color-background: #fafafa;
+  --color-foreground: #151515;
+  --color-primary: #9070ff;
+  --color-success: #108a00;
+  --color-warning: #f3bd1b;
+  --color-danger: #d60000;
+
+  /* Color palette */
+  --color-palette: var(--color-primary);
+}
+
+[data-theme="dark"] {
+  --color-background: #151515;
+  --color-foreground: #fafafa;
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
