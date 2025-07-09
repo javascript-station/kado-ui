@@ -23,7 +23,7 @@ async function main() {
 
   const userPath = path.resolve(process.cwd(), targetPath);
 
-  const foldersToCopy = ["styles", "components"];
+  const foldersToCopy = ["styles", "components", "utils"];
 
   for (const folder of foldersToCopy) {
     const srcFolder = path.join(srcRoot, folder);
