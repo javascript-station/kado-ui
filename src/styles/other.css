@@ -1,0 +1,21 @@
+@utility avatar {
+  @apply size-12 rounded-full shadow;
+}
+
+@utility kbd {
+  @apply text-sm py-0.5 px-1 rounded bg-palette/10 text-palette active:translate-y-0.5 transition-all duration-75;
+
+  box-shadow: 0 2px 0 1px var(--color-palette);
+
+  &:active {
+    box-shadow: 0 1px 0 1px var(--color-palette);
+  }
+}
+
+@utility highlight {
+  @apply px-1.5 bg-palette/10 text-palette rounded font-bold;
+}
+
+@utility skeleton {
+  @apply bg-palette/10 rounded-lg animate-pulse;
+}
