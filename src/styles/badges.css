@@ -1,0 +1,6 @@
+/* Badges */
+@utility badge {
+  @apply f-center px-1.5 h-6 text-sm gap-0.5 rounded-lg w-fit max-w-full
+  text-palette
+  bg-palette/10;
+}
