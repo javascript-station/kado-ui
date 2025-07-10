@@ -1,10 +1,28 @@
-/* Badges */
+/* Badge */
 @utility badge {
-  @apply f-center px-1.5 h-6 text-sm gap-0.5 rounded-lg w-fit max-w-full
-  text-palette
-  bg-palette/10;
+  --badge-h: 1.5rem; /* 6 in tailwind */
+  --badge-text: 0.875rem; /* sm in tailwind */
+
+  @apply h-[var(--badge-h)]
+  f-center gap-0.5 px-1.5 rounded-lg w-fit max-w-full;
+
+  font-size: var(--badge-text);
+}
+/* --- */
+
+/* Sizes */
+@utility badge-sm {
+  --badge-h: 1.25rem; /* 5 in tailwind */
+  --badge-text: 0.75rem; /* xs in tailwind */
 }
 
+@utility badge-lg {
+  --badge-h: 1.75rem; /* 7 in tailwind */
+  --badge-text: 1rem; /* base in tailwind */
+}
+/* --- */
+
+/* Variants */
 @utility badge-fill {
   @apply badge; /* Extend */
 
@@ -16,3 +34,4 @@
 
   @apply text-palette bg-palette/10 backdrop-blur-sm;
 }
+/* --- */

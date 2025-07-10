@@ -1,21 +1,39 @@
-/* Buttons */
+/* Button */
 @utility btn {
-  --btn-width: auto;
-  --btn-height: 2.25rem; /* 9 in tailwind */
-  --btn-px: 0.75rem; /* 3 in tailwind */
+  --btn-w: auto;
+  --btn-h: calc(var(--spacing) * 9);
+  --btn-px: calc(var(--spacing) * 3);
+  --btn-text: var(--text-base);
+  --btn-line: var(--tw-leading, var(--text-base--line-height));
 
-  @apply h-[var(--btn-height)] w-[var(--btn-width)] px-[var(--btn-px)]
-  text-base gap-3 rounded-lg f-center ring-4 ring-transparent transition-all origin-bottom
+  @apply h-[var(--btn-h)] w-[var(--btn-w)] px-[var(--btn-px)]
+  gap-3 rounded-lg f-center ring-4 ring-transparent transition-all origin-bottom
   active:scale-90 disabled:opacity-50 disabled:cursor-not-allowed;
+
+  font-size: var(--btn-text);
+  line-height: var(--btn-line);
 
   :where(.menu-y &) {
     @apply w-full !justify-start;
   }
 }
+/* --- */
+
+/* Sizes */
+@utility btn-sm {
+  --btn-h: calc(var(--spacing) * 8);
+  --btn-text: var(--text-sm);
+  --btn-line: var(--tw-leading, var(--text-sm--line-height));
+}
+
+@utility btn-lg {
+  --btn-h: calc(var(--spacing) * 10);
+  --btn-text: var(--text-lg);
+  --btn-line: var(--tw-leading, var(--text-lg--line-height));
+}
 
 @utility btn-square {
-  --btn-width: 2.25rem;
-  --btn-height: 2.25rem;
+  --btn-w: var(--btn-h);
   --btn-px: 0;
 }
 /* --- */

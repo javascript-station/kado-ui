@@ -1,15 +1,33 @@
+/* Menu */
 @utility menu {
-  @apply bg-palette/10 p-3 rounded-lg w-fit;
+  --menu-size: calc(var(--spacing) * 3);
+
+  @apply p-[var(--menu-size)]
+  bg-palette/10 rounded-lg w-fit;
+}
+/* --- */
+
+/* Sizes */
+@utility menu-sm {
+  --menu-size: calc(var(--spacing) * 1.5);
 }
 
+@utility menu-lg {
+  --menu-size: calc(var(--spacing) * 6);
+}
+/* --- */
+
+/* Directions */
 @utility menu-y {
   @apply menu; /* Extend */
 
-  @apply space-y-3;
+  @apply space-y-[var(--menu-size)];
 }
 
 @utility menu-x {
   @apply menu; /* Extend */
 
-  @apply f-align gap-3;
+  @apply gap-x-[var(--menu-size)]
+  f-align;
 }
+/* --- */

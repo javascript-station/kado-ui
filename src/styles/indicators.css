@@ -1,6 +1,28 @@
-/* Primary class */
+/* Indicator */
 @utility indicator {
-  @apply text-xs p-0.5 rounded-full absolute;
+  --indicator-size: calc(var(--spacing) * 6);
+  --indicator-text: var(--text-sm);
+  --indicator-line: var(--tw-leading, var(--text-sm--line-height));
+
+  @apply size-[var(--indicator-size)]
+  f-center rounded-full absolute;
+
+  font-size: var(--indicator-text);
+  line-height: var(--indicator-line);
+}
+/* --- */
+
+/* Sizes */
+@utility indicator-sm {
+  --indicator-size: calc(var(--spacing) * 5);
+  --indicator-text: var(--text-xs);
+  --indicator-line: var(--tw-leading, var(--text-xs--line-height));
+}
+
+@utility indicator-lg {
+  --indicator-size: calc(var(--spacing) * 7);
+  --indicator-text: var(--text-base);
+  --indicator-line: var(--tw-leading, var(--text-base--line-height));
 }
 /* --- */
 

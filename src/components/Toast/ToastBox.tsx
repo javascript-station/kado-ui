@@ -1,5 +1,6 @@
 import { CheckIcon, CircleAlertIcon, TriangleAlertIcon, XIcon } from "lucide-react";
 
+import { cn } from "../../utils/cn";
 import { ToastT } from "./toastTypes";
 
 type ToastBoxPropsT = {
@@ -37,7 +38,10 @@ function ToastBox({ toast }: ToastBoxPropsT) {
   }
 
   return (
-    <div className={toast.variant || "toast-fill"}>
+    <div className={cn(
+      toast.variant || "toast-fill",
+      toast.size
+    )}>
       {toastIcon}
       {toast.data}
       {toast.action}
