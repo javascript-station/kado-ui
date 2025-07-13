@@ -1,6 +1,6 @@
 {
   "name": "kado-ui",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "description": "React and Tailwind UI library",
   "license": "ISC",
   "author": "javascript-station",
@@ -20,6 +20,7 @@
     "fs-extra": "^11.1.1",
     "lucide-react": "^0.525.0",
     "nanoid": "^5.1.5",
+    "next": "^15.3.5",
     "prompts": "^2.4.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
