@@ -3,7 +3,7 @@
 import { use } from "react";
 import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion";
 
-import { cn } from "@/kado-ui/utils/cn";
+import { cn } from "../../utils/cn";
 import AccordionContext from "./AccordionContext";
 
 type AccordionBodyPropsT = HTMLMotionProps<"div">;
@@ -26,4 +26,4 @@ function AccordionBody({ className, ...props }: AccordionBodyPropsT) {
   )
 }
 
-export default AccordionBody
+export default AccordionBody;
