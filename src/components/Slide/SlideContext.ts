@@ -1,9 +1,13 @@
 import { createContext, Dispatch, SetStateAction } from "react";
 
-export const SlideContext = createContext<{
+type SlideContextT = {
   isOpen: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
-}>({
+}
+
+const SlideContext = createContext<SlideContextT>({
   isOpen: false,
   setOpen: () => { }
 });
+
+export default SlideContext;

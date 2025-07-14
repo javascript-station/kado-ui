@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, use } from "react";
 
-import { SlideContext } from "./SlideContext";
+import SlideContext from "./SlideContext";
 
 type SlideTogglePropsT = HTMLAttributes<HTMLButtonElement>;
 

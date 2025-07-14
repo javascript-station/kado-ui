@@ -2,7 +2,7 @@
 
 import { PropsWithChildren, useEffect, useState } from "react";
 
-import { SlideContext } from "./SlideContext";
+import SlideContext from "./SlideContext";
 
 type SlideRootPropsT = PropsWithChildren;
 
