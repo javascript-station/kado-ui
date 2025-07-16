@@ -14,11 +14,11 @@ function PaginationNextBtn({ onClick, disabled, children, ...props }: Pagination
 
   return (
     <button
+      disabled={disabled || page === pageLength}
       onClick={ev => {
         onClick?.(ev);
         nextPage();
       }}
-      disabled={disabled || page === pageLength}
       {...props}
     >
       {children || <ChevronRightIcon className="compatible-icon" />}

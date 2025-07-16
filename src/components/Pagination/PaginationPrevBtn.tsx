@@ -14,11 +14,11 @@ function PaginationPrevBtn({ onClick, disabled, children, ...props }: Pagination
 
   return (
     <button
+      disabled={disabled || page === 1}
       onClick={ev => {
         onClick?.(ev);
         prevPage();
       }}
-      disabled={disabled || page === 1}
       {...props}
     >
       {children || <ChevronLeftIcon className="compatible-icon" />}
