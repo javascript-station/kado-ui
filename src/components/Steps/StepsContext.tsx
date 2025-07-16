@@ -1,10 +1,10 @@
 import { createContext, Dispatch, SetStateAction } from "react";
 
-import { SteptsT } from "./stepsTypes";
+import { StepsT } from "./stepsTypes";
 
 type StepsContextT = {
   step: number;
-  steps: SteptsT[];
+  steps: StepsT[];
   setStep: Dispatch<SetStateAction<number>>;
   nextStep: () => void;
   prevStep: () => void;

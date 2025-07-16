@@ -2,13 +2,13 @@
 
 import { PropsWithChildren, useEffect, useState } from "react";
 
-import { SteptsT } from "./stepsTypes";
+import { StepsT } from "./stepsTypes";
 import StepsContext from "./StepsContext";
 import { useRouter, useSearchParams } from "next/navigation";
 
 type StepsSearchParamsRootPropsT = PropsWithChildren & {
   stepKey?: string;
-  steps: SteptsT[];
+  steps: StepsT[];
 };
 
 function StepsSearchParamsRoot({ children, steps, stepKey }: StepsSearchParamsRootPropsT) {

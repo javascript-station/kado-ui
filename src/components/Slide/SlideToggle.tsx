@@ -5,13 +5,13 @@ import SlideContext from "./SlideContext";
 type SlideTogglePropsT = HTMLAttributes<HTMLButtonElement>;
 
 function SlideToggle({ onClick, ...props }: SlideTogglePropsT) {
-  const slide = use(SlideContext);
+  const { setOpen } = use(SlideContext);
 
   return (
     <button
       onClick={ev => {
-        onClick?.(ev)
-        slide.setOpen(prev => !prev)
+        onClick?.(ev);
+        setOpen(prev => !prev);
       }}
       {...props}
     />

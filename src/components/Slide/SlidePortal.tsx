@@ -9,14 +9,14 @@ import SlideContext from "./SlideContext";
 type SlidePortalPropsT = HTMLAttributes<HTMLDivElement>;
 
 function SlidePortal({ className, ...props }: SlidePortalPropsT) {
-  const slide = use(SlideContext);
+  const { isOpen } = use(SlideContext);
 
   return (
     <Portal>
       <div
         className={cn(
           "w-screen h-dvh bg-background fixed top-0 left-0 transition-all duration-700",
-          slide.isOpen ? "" : "faint -translate-x-full",
+          isOpen ? "" : "faint -translate-x-full",
           className
         )}
         {...props}
