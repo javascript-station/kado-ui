@@ -1,11 +1,13 @@
 import { ChangeEvent } from "react"
 
 export const formatInput = (ev: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, regex: RegExp) => {
-  const { value } = ev.target
+  const { value } = ev.target;
 
-  if (!regex.test(value)) {
-    ev.target.value = value.slice(0, -1)
+  const filteredValue = Array.from(value).filter(char => regex.test(char)).join("");
+
+  if (filteredValue !== value) {
+    ev.target.value = filteredValue;
   }
 
-  return ev.target.value
+  return ev.target.value;
 }
