@@ -9,7 +9,7 @@
 
   @apply h-[var(--input-h)]
   ring-4 ring-transparent w-full flex rounded-lg gap-3 cursor-pointer transition-all origin-bottom
-  active:scale-90 relative disabled:opacity-50 disabled:cursor-not-allowed;
+  relative disabled:opacity-50 disabled:cursor-not-allowed;
 
   font-size: var(--input-text);
   line-height: var(--input-line);
