@@ -5,3 +5,11 @@
 @utility skeleton {
   @apply bg-palette/10 rounded-lg animate-pulse;
 }
+
+@utility ignore {
+  @apply opacity-0 invisible pointer-events-none;
+}
+
+@utility no-ignore {
+  @apply opacity-100 visible pointer-events-auto;
+}

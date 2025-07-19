@@ -16,7 +16,7 @@
   font-size: var(--input-text);
   line-height: var(--input-line);
 
-  &:has(input) {
+  &:has(input, select) {
     @apply items-center px-[var(--input-p)];
   }
 
@@ -57,7 +57,7 @@
   @apply border
   text-palette
   border-palette
-  not-focus-within:hover:bg-palette/10
+  /* not-focus-within:hover:bg-palette/10 */
   focus-within:ring-palette/20;
 }
 
