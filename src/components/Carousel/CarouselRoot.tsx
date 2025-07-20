@@ -3,11 +3,11 @@
 import { HTMLAttributes, useEffect, useRef, useState } from "react";
 
 import { cn } from "../../utils/cn";
-import ScrollXContext from "./ScrollXContext";
+import CarouselContext from "./CarouselContext";
 
-type ScrollXRootPropsT = HTMLAttributes<HTMLDivElement>;
+type CarouselRootPropsT = HTMLAttributes<HTMLDivElement>;
 
-function ScrollXRoot({ children, className, ...props }: ScrollXRootPropsT) {
+function CarouselRoot({ children, className, ...props }: CarouselRootPropsT) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [leftOpacity, setLeftOpacity] = useState(0);
   const [rightOpacity, setRightOpacity] = useState(1);
@@ -50,7 +50,7 @@ function ScrollXRoot({ children, className, ...props }: ScrollXRootPropsT) {
   }, []);
 
   return (
-    <ScrollXContext value={{ scrollRef }}>
+    <CarouselContext value={{ scrollRef }}>
       <div className={cn("relative", className)} {...props}>
         {/* Left Fade */}
         <div
@@ -70,8 +70,8 @@ function ScrollXRoot({ children, className, ...props }: ScrollXRootPropsT) {
         />
         {/* --- */}
       </div>
-    </ScrollXContext>
+    </CarouselContext>
   );
 }
 
-export default ScrollXRoot;
+export default CarouselRoot;
