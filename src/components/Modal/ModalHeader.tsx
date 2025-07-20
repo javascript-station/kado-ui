@@ -1,16 +1,13 @@
-"use client"
+import type { HTMLAttributes } from "react";
 
-import type { HTMLAttributes } from "react"
-import { cn } from "../../utils/cn"
+import { cn } from "../../utils/cn";
 
-type ModalHeaderPropsT = HTMLAttributes<HTMLDivElement>
+type ModalHeaderPropsT = HTMLAttributes<HTMLDivElement>;
 
-function ModalHeader({ children, className, ...props }: ModalHeaderPropsT) {
+function ModalHeader({ className, ...props }: ModalHeaderPropsT) {
   return (
-    <div className={cn("px-6 py-4 separate-b", className)} {...props}>
-      <h2 className="text-lg font-semibold">{children}</h2>
-    </div>
-  )
-}
+    <div className={cn("h-16 f-align px-3 bg-background rounded-t-2xl border-b border-separator sticky top-0", className)} {...props} />
+  );
+};
 
-export default ModalHeader
+export default ModalHeader;

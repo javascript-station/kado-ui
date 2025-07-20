@@ -1,16 +1,16 @@
-import ModalBody from "./ModalBody"
-import ModalClose from "./ModalClose"
-import ModalContent from "./ModalContent"
-import ModalHeader from "./ModalHeader"
-import ModalRoot from "./ModalRoot"
-import ModalTrigger from "./ModalTrigger"
+import ModalBody from "./ModalBody";
+import ModalRoot from "./ModalRoot";
+import ModalHeader from "./ModalHeader";
+import ModalPortal from "./ModalPortal";
+import ModalToggle from "./ModalTrigger";
+import ModalContent from "./ModalContent";
 
 const Modal = Object.assign(ModalRoot, {
-  Trigger: ModalTrigger,
+  Toggle: ModalToggle,
+  Portal: ModalPortal,
   Content: ModalContent,
   Header: ModalHeader,
-  Body: ModalBody,
-  Close: ModalClose,
+  Body: ModalBody
 })
 
-export default Modal
+export default Modal;
