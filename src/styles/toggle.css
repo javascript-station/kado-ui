@@ -1,0 +1,124 @@
+/* Toggle */
+@utility toggle {
+  @apply relative inline-flex cursor-pointer;
+  @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  @apply disabled:cursor-not-allowed disabled:opacity-50;
+  @apply transition-colors duration-200;
+
+  width: 2.75rem; /* 44px */
+  height: 1.5rem; /* 24px */
+}
+
+/* --- */
+
+/* Sizes */
+@utility toggle-sm {
+  width: 2rem; /* 32px */
+  height: 1rem; /* 16px */
+}
+
+@utility toggle-lg {
+  width: 3.5rem; /* 56px */
+  height: 1.75rem; /* 28px */
+}
+
+/* --- */
+
+/* Track */
+@utility toggle-track {
+  @apply absolute inset-0 rounded-full;
+  @apply border-2 border-transparent;
+  @apply transition-colors duration-200;
+}
+
+/* Track variants */
+@utility toggle-track-off {
+  @apply toggle-track; /* Extend */
+  @apply bg-gray-200 dark:bg-gray-700;
+}
+
+@utility toggle-track-on {
+  @apply toggle-track; /* Extend */
+  @apply bg-blue-600 dark:bg-blue-500;
+}
+
+/* --- */
+
+/* Thumb */
+@utility toggle-thumb {
+  @apply absolute bg-white rounded-full;
+  @apply transition-transform duration-200 ease-in-out;
+  @apply shadow-sm border border-gray-300 dark:border-gray-600;
+
+  width: 1rem; /* 16px */
+  height: 1rem; /* 16px */
+  top: 0.125rem; /* 2px */
+  left: 0.125rem; /* 2px */
+}
+
+/* Thumb variants */
+@utility toggle-thumb-off {
+  @apply toggle-thumb; /* Extend */
+  transform: translateX(0);
+}
+
+@utility toggle-thumb-on {
+  @apply toggle-thumb; /* Extend */
+  transform: translateX(1.25rem); /* 20px */
+}
+
+/* --- */
+
+/* Small size thumb */
+@utility toggle-sm .toggle-thumb {
+  width: 0.75rem; /* 12px */
+  height: 0.75rem; /* 12px */
+  top: 0.125rem; /* 2px */
+  left: 0.125rem; /* 2px */
+}
+
+@utility toggle-sm .toggle-thumb-on {
+  transform: translateX(1rem); /* 16px */
+}
+
+/* Large size thumb */
+@utility toggle-lg .toggle-thumb {
+  width: 1.25rem; /* 20px */
+  height: 1.25rem; /* 20px */
+  top: 0.125rem; /* 2px */
+  left: 0.125rem; /* 2px */
+}
+
+@utility toggle-lg .toggle-thumb-on {
+  transform: translateX(1.75rem); /* 28px */
+}
+
+/* --- */
+
+/* Label */
+@utility toggle-label {
+  @apply ml-3 text-sm font-medium text-gray-900 dark:text-gray-100;
+  @apply cursor-pointer select-none;
+}
+
+/* Description */
+@utility toggle-description {
+  @apply ml-3 text-sm text-gray-500 dark:text-gray-400;
+}
+
+/* --- */
+
+/* Variants */
+@utility toggle-success .toggle-track-on {
+  @apply bg-green-600 dark:bg-green-500;
+}
+
+@utility toggle-warning .toggle-track-on {
+  @apply bg-yellow-600 dark:bg-yellow-500;
+}
+
+@utility toggle-danger .toggle-track-on {
+  @apply bg-red-600 dark:bg-red-500;
+}
+
+/* --- */
