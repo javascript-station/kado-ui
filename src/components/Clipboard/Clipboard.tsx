@@ -1,39 +1,39 @@
 "use client";
 
-import { useState } from "react";
-import { Check, Copy } from "lucide-react"; 
-import { cn } from "../../utils/cn";
+import { CopyCheckIcon, CopyIcon } from "lucide-react";
+import { ButtonHTMLAttributes, MouseEvent } from "react";
 
-type ClipboardProps = {
+import { useClipboard } from "@mantine/hooks";
+
+type ClipboardPropsT = ButtonHTMLAttributes<HTMLButtonElement> & {
   text: string;
-  className?: string;
-  tooltip?: string;
+  timeout?: number;
 };
 
-export default function Clipboard({ text, className, tooltip = "Copy to clipboard" }: ClipboardProps) {
-  const [copied, setCopied] = useState(false);
+function Clipboard({ onClick, children, text, timeout = 3_000, ...props }: ClipboardPropsT) {
+  const { copy, copied } = useClipboard({ timeout });
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy text:", err);
-    }
+  const handleClick = (ev: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
+    onClick?.(ev);
+    copy(text.trim());
   };
 
   return (
     <button
-      onClick={handleCopy}
-      className={cn(
-        "inline-flex items-center gap-1 px-2 py-1 rounded text-sm border hover:bg-muted transition-colors",
-        className
-      )}
-      title={copied ? "Copied!" : tooltip}
+      aria-label={text}
+      onClick={handleClick}
+      {...props}
     >
-      {copied ? <Check className="icon-size-2 text-green-600" /> : <Copy className="icon-size-2" />}
-      <span>{copied ? "Copied" : "Copy"}</span>
+      {copied ? (
+        <CopyCheckIcon className="compatible-icon" />
+      ) : (
+        <CopyIcon className="compatible-icon" />
+      )}
+
+      {children}
     </button>
   );
 }
+
+
+export default Clipboard;

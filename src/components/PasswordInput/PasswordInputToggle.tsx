@@ -25,22 +25,24 @@ function PasswordInputToggle({ onClick, children, ...props }: PasswordInputToggl
           {isVisible ? (
             <motion.div
               key="visible"
+              className="compatible-icon"
               initial={{ opacity: 0, y: "-25%" }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: "25%" }}
               transition={{ duration: 0.1 }}
             >
-              <EyeIcon />
+              <EyeIcon className="size-full" />
             </motion.div>
           ) : (
             <motion.div
               key="hidden"
+              className="compatible-icon"
               initial={{ opacity: 0, y: "-25%" }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: "25%" }}
               transition={{ duration: 0.1 }}
             >
-              <EyeClosedIcon />
+              <EyeClosedIcon className="size-full" />
             </motion.div>
           )}
         </AnimatePresence>
