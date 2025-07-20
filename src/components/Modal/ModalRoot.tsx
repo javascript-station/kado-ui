@@ -3,7 +3,7 @@
 import { useState, useEffect, PropsWithChildren } from "react";
 
 import ModalContext from "./ModalContext";
-import { getBrowserScrollbarWith } from "@/kado-ui/utils/browser";
+import { getBrowserScrollbarWith } from "../../utils/browser";
 
 type ModalRootPropsT = PropsWithChildren & {
   defaultOpen?: boolean;

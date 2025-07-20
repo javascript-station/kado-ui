@@ -3,8 +3,8 @@
 import { use } from "react";
 import { motion, AnimatePresence, HTMLMotionProps } from "framer-motion";
 
+import { cn } from "../../utils/cn";
 import Portal from "../Portal/Portal";
-import { cn } from "@/kado-ui/utils/cn";
 import ModalContext from "./ModalContext";
 import ClientOnly from "../ClientOnly/ClientOnly";
 
