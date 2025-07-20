@@ -1,16 +1,15 @@
 "use client"
 
-import type { HTMLAttributes } from "react"
-import { cn } from "../../utils/cn"
+import type { HTMLAttributes } from "react";
 
-type TabsListPropsT = HTMLAttributes<HTMLDivElement>
+import { cn } from "../../utils/cn";
 
-function TabsList({ children, className, ...props }: TabsListPropsT) {
+type TabsListPropsT = HTMLAttributes<HTMLDivElement>;
+
+function TabsList({ className, ...props }: TabsListPropsT) {
   return (
-    <div className={cn("f-align join-border bg-muted/50 p-1 rounded-lg", className)} role="tablist" {...props}>
-      {children}
-    </div>
+    <div className={cn("join-border", className)} {...props} />
   )
 }
 
-export default TabsList
+export default TabsList;

@@ -1,13 +1,13 @@
-import { createContext, type Dispatch, type SetStateAction } from "react"
+import { createContext, Dispatch, SetStateAction } from "react";
 
 type TabsContextT = {
-  activeTab: string
-  setActiveTab: Dispatch<SetStateAction<string>>
+  activeTab: string;
+  setActiveTab: Dispatch<SetStateAction<string>>;
 }
 
 const TabsContext = createContext<TabsContextT>({
   activeTab: "",
-  setActiveTab: () => {},
-})
+  setActiveTab: () => { },
+});
 
-export default TabsContext
+export default TabsContext;

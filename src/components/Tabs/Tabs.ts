@@ -1,13 +1,13 @@
-import TabsList from "./TabsList"
-import TabsPanel from "./TabsPanel"
-import TabsRoot from "./TabsRoot"
-import TabsTab from "./TabsTab"
+import TabsTab from "./TabsTab";
+import TabsList from "./TabsList";
+import TabsRoot from "./TabsRoot";
+import TabsPanel from "./TabsPanel";
 
 
 const Tabs = Object.assign(TabsRoot, {
   List: TabsList,
   Tab: TabsTab,
-  Panel: TabsPanel,
+  Panel: TabsPanel
 })
 
-export default Tabs
+export default Tabs;

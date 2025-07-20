@@ -1,35 +1,25 @@
 "use client"
 
-import { ReactNode, use } from "react"
-import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion"
-import { cn } from "../../utils/cn"
-import TabsContext from "./TabsContext"
+import { HTMLAttributes, use } from "react";
 
-type TabsPanelPropsT = HTMLMotionProps<"div"> & {
-  value: string
+import { cn } from "../../utils/cn";
+import TabsContext from "./TabsContext";
+
+type TabsPanelPropsT = HTMLAttributes<HTMLDivElement> & {
+  value: string;
 }
 
-function TabsPanel({ value, children, className, ...props }: TabsPanelPropsT) {
-  const { activeTab } = use(TabsContext)
-  const isActive = activeTab === value
+function TabsPanel({ value, className, ...props }: TabsPanelPropsT) {
+  const { activeTab } = use(TabsContext);
 
-  return (
-    <AnimatePresence mode="wait">
-      {isActive ? (
-        <motion.div
-          className={cn("mt-4", className)}
-          role="tabpanel"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.2 }}
-          {...props}
-        >
-          {children as ReactNode}
-        </motion.div>
-      ) : null}
-    </AnimatePresence>
-  )
+  const isActive = activeTab === value;
+
+  return isActive ? (
+    <div
+      className={cn("p-3 rounded-lg bg-foreground/10 mt-1.5", className)}
+      {...props}
+    />
+  ) : null
 }
 
-export default TabsPanel
+export default TabsPanel;
