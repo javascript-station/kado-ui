@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+
 import { cn } from "../../utils/cn";
 
 type SpoilerProps = {
@@ -13,21 +14,16 @@ export default function Spoiler({ children, className }: SpoilerProps) {
 
   return (
     <span
-      role="button"
-      tabIndex={0}
       onClick={() => setRevealed(true)}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") setRevealed(true);
-      }}
       className={cn(
-        "cursor-pointer rounded-sm px-1 transition-all duration-300",
-        !revealed &&
-          "text-transparent bg-foreground/20 dark:bg-foreground/30 backdrop-blur-sm select-none",
+        "transition-all",
+        revealed ? "" : "inline cursor-pointer rounded overflow-hidden px-1",
         className
       )}
-      style={!revealed ? { textShadow: "0 0 6px rgba(255,255,255,0.6)" } : {}}
     >
-      {children}
+      <span className={`transition-all ${revealed ? "" : "select-none blur-[3px]"}`}>
+        {children}
+      </span>
     </span>
   );
 }
