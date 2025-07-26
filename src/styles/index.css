@@ -62,10 +62,7 @@
 */
 
 @theme {
-  /* Initial configs */
   --color-*: initial;
-
-  /* Colors */
   --color-background-thin: #ffffff;
   --color-background: #fafafa;
   --color-background-thick: #efefef;
@@ -74,14 +71,16 @@
   --color-success: #108a00;
   --color-warning: #f3bd1b;
   --color-danger: #d60000;
-
-  /* Color palette */
   --color-palette: var(--color-primary);
   --color-brush: var(--color-background);
+
+  --radius-kado: 0.375rem;
 }
 
 [data-theme="dark"] {
+  --color-background-thin: #202020;
   --color-background: #151515;
+  --color-background-thick: #101010;
   --color-foreground: #fafafa;
 }
 
