@@ -6,12 +6,12 @@ import OtpContext from "./OtpContext";
 
 type OtpHiddenInputPropsT = InputHTMLAttributes<HTMLInputElement>;
 
-function OtpHiddenInput({ name, ...props }: OtpHiddenInputPropsT) {
+function OtpHiddenInput({ name, ...p }: OtpHiddenInputPropsT) {
   const { getInputsValue } = use(OtpContext);
 
   return (
-    <input type="hidden" name={name || "otp"} value={getInputsValue()} {...props} />
+    <input type="hidden" tabIndex={-1} name={name || "otp"} value={getInputsValue()} {...p} />
   )
 }
 
-export default OtpHiddenInput
+export default OtpHiddenInput;
