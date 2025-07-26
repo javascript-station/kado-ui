@@ -2,9 +2,18 @@
   Popover
   The popover container should have `group/popover` class and be `absolute` or `relative`
 */
+@utility popover-group {
+  @apply relative;
+
+  &:not(:hover) {
+    .popover {
+      @apply ignore scale-0;
+    }
+  }
+}
+
 @utility popover {
-  @apply absolute w-max opacity-0 scale-0 invisible transition-all z-10
-  group-hover/popover:opacity-100 group-hover/popover:visible group-hover/popover:scale-100;
+  @apply absolute w-max transition-all z-10;
 }
 /* --- */
 
@@ -15,24 +24,10 @@
   --popover-content-line: var(--tw-leading, var(--text-base--line-height));
 
   @apply p-[var(--popover-content-size)]
-  rounded-lg;
+  bg-palette text-brush rounded-lg;
 
   font-size: var(--popover-content-text);
   line-height: var(--popover-content-line);
-}
-/* --- */
-
-/* Content variants */
-@utility popover-content-fill {
-  @apply popover-content; /* Extend */
-
-  @apply bg-palette text-background;
-}
-
-@utility popover-content-glass {
-  @apply popover-content; /* Extend */
-
-  @apply bg-palette/10 text-palette backdrop-blur-sm;
 }
 /* --- */
 
@@ -52,50 +47,34 @@
 
 /* Positions */
 @utility popover-t {
-  @apply popover; /* Extend */
-
   @apply pb-1.5 top-out left-center origin-bottom;
 }
 
 @utility popover-tr {
-  @apply popover; /* Extend */
-
   @apply top-out right-out origin-bottom-left;
 }
 
 @utility popover-r {
-  @apply popover; /* Extend */
-
   @apply pl-1.5 top-center right-out origin-left;
 }
 
 @utility popover-br {
-  @apply popover; /* Extend */
-
   @apply bottom-out right-out origin-top-left;
 }
 
 @utility popover-b {
-  @apply popover; /* Extend */
-
   @apply pt-1.5 bottom-out left-center origin-top;
 }
 
 @utility popover-bl {
-  @apply popover; /* Extend */
-
   @apply bottom-out left-out origin-top-right;
 }
 
 @utility popover-l {
-  @apply popover; /* Extend */
-
   @apply pr-1.5 top-center left-out origin-right;
 }
 
 @utility popover-tl {
-  @apply popover; /* Extend */
-
   @apply top-out left-out origin-bottom-right;
 }
 /* --- */

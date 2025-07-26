@@ -3,9 +3,9 @@
   --badge-h: 1.5rem; /* 6 in tailwind */
   --badge-text: 0.875rem; /* sm in tailwind */
 
-  @apply h-[var(--badge-h)]
-  f-center gap-0.5 px-1.5 rounded-lg w-fit max-w-full;
+  @apply f-center gap-0.5 px-1.5 rounded-lg w-fit max-w-full bg-palette text-brush;
 
+  height: var(--badge-h);
   font-size: var(--badge-text);
 }
 /* --- */
@@ -19,19 +19,5 @@
 @utility badge-lg {
   --badge-h: 1.75rem; /* 7 in tailwind */
   --badge-text: 1rem; /* base in tailwind */
-}
-/* --- */
-
-/* Variants */
-@utility badge-fill {
-  @apply badge; /* Extend */
-
-  @apply bg-palette text-background;
-}
-
-@utility badge-glass {
-  @apply badge; /* Extend */
-
-  @apply text-palette bg-palette/10 backdrop-blur-sm;
 }
 /* --- */

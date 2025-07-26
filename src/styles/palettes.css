@@ -1,3 +1,8 @@
+@utility palette-background {
+  --color-palette: var(--color-background);
+  --color-brush: var(--color-foreground);
+}
+
 @utility palette-foreground {
   --color-palette: var(--color-foreground);
 }

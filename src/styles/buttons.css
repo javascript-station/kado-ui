@@ -6,14 +6,16 @@
   --btn-text: var(--text-base);
   --btn-line: var(--tw-leading, var(--text-base--line-height));
 
-  @apply h-[var(--btn-h)] w-[var(--btn-w)] px-[var(--btn-px)]
-  gap-3 rounded-lg f-center ring-4 ring-transparent transition-all origin-bottom
+  @apply gap-3 rounded-lg f-center transition-colors outline-solid outline-2 outline-transparent focus-visible:outline-palette
   disabled:opacity-50 disabled:cursor-not-allowed;
 
+  width: var(--btn-w);
+  height: var(--btn-h);
+  padding: 0 var(--btn-px);
   font-size: var(--btn-text);
   line-height: var(--btn-line);
 
-  :where(.menu-y &) {
+  &:where(.menu-y &) {
     @apply !w-full !justify-start;
   }
 }
@@ -42,46 +44,24 @@
 @utility btn-fill {
   @apply btn; /* Extend */
 
-  @apply bg-palette
-  text-background
-  not-focus:hover:bg-palette/90
-  focus:ring-palette/20;
+  @apply bg-palette text-brush outline-offset-2 not-active:hover:bg-palette/90;
 }
 
 @utility btn-outline {
   @apply btn; /* Extend */
 
-  @apply border
-  border-palette
-  text-palette
-  not-focus:hover:bg-palette/10
-  focus:ring-palette/20;
+  @apply border border-palette text-palette outline-offset-2 not-active:hover:bg-palette/10;
 }
 
 @utility btn-soft {
   @apply btn; /* Extend */
 
-  @apply text-palette
-  not-focus:bg-palette/10
-  not-focus:hover:bg-palette/20
-  focus:ring-palette/20;
-}
-
-@utility btn-glass {
-  @apply btn; /* Extend */
-
-  @apply text-palette
-  backdrop-blur-sm
-  not-focus:bg-palette/10
-  not-focus:hover:bg-palette/20
-  focus:ring-palette/20;
+  @apply bg-palette/10 text-palette not-active:hover:bg-palette/20;
 }
 
 @utility btn-ghost {
   @apply btn; /* Extend */
 
-  @apply text-palette
-  not-focus:hover:bg-palette/10
-  focus:ring-palette/20;
+  @apply text-palette not-active:hover:bg-palette/10;
 }
 /* --- */

@@ -5,7 +5,7 @@
   --indicator-line: var(--tw-leading, var(--text-sm--line-height));
 
   @apply size-[var(--indicator-size)]
-  f-center rounded-full absolute;
+  bg-palette text-brush f-center rounded-full absolute;
 
   font-size: var(--indicator-text);
   line-height: var(--indicator-line);
@@ -73,15 +73,5 @@
   @apply indicator; /* Extend */
 
   @apply top-boundary left-boundary;
-}
-/* --- */
-
-/* Variants */
-@utility indicator-fill {
-  @apply bg-palette text-background;
-}
-
-@utility indicator-glass {
-  @apply bg-palette/10 text-palette backdrop-blur-sm;
 }
 /* --- */

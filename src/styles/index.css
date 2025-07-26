@@ -66,7 +66,9 @@
   --color-*: initial;
 
   /* Colors */
+  --color-background-thin: #ffffff;
   --color-background: #fafafa;
+  --color-background-thick: #efefef;
   --color-foreground: #151515;
   --color-primary: #9070ff;
   --color-success: #108a00;
@@ -75,6 +77,7 @@
 
   /* Color palette */
   --color-palette: var(--color-primary);
+  --color-brush: var(--color-background);
 }
 
 [data-theme="dark"] {
