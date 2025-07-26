@@ -14,3 +14,23 @@ export const getBrowserScrollbarWith = () => {
 
   return scrollbarWidth;
 }
+
+export const selectAccessibleChildren = (parent: HTMLElement) => {
+  const children = Array.from(
+    parent.querySelectorAll<HTMLElement>(`
+      a[href],
+      area[href],
+      input:not([disabled]),
+      select:not([disabled]),
+      textarea:not([disabled]),
+      button:not([disabled]),
+      iframe,
+      object,
+      embed,
+      [tabindex]:not([tabindex="-1"]),
+      [contenteditable="true"]
+    `)
+  );
+
+  return children;
+}

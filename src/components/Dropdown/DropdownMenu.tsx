@@ -10,24 +10,26 @@ type DropdownMenuPropsT = HTMLAttributes<HTMLDivElement> & {
 };
 
 function DropdownMenu({ preventClose, onClick, className, ...p }: DropdownMenuPropsT) {
-  const { isOpen } = use(DropdownContext);
+  const { menuRef, isOpen } = use(DropdownContext);
 
   return (
-    <div
-      onClick={ev => {
-        if (preventClose) {
-          ev.stopPropagation();
-        }
+    isOpen ? (
+      <div
+        ref={menuRef}
+        onClick={ev => {
+          if (preventClose) {
+            ev.stopPropagation();
+          }
 
-        onClick?.(ev);
-      }}
-      className={cn(
-        "absolute w-max transition-all z-10",
-        isOpen ? "" : "ignore",
-        className
-      )}
-      {...p}
-    />
+          onClick?.(ev);
+        }}
+        className={cn(
+          "absolute w-max z-10",
+          className
+        )}
+        {...p}
+      />
+    ) : null
   )
 }
 
