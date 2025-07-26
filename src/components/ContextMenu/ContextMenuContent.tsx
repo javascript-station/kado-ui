@@ -1,14 +1,32 @@
 "use client";
 
-import { HTMLAttributes, use } from "react";
+import { HTMLAttributes, use, useEffect } from "react";
 
 import { cn } from "../../utils/cn";
 import ContextMenuContext from "./ContextMenuContext";
+import { selectAccessibleChildren } from "../../utils/browser";
 
 type ContextMenuContentPropsT = HTMLAttributes<HTMLDivElement>;
 
 function ContextMenuContent({ onContextMenu, className, ...p }: ContextMenuContentPropsT) {
   const { contentRef, position, isOpen } = use(ContextMenuContext);
+
+  useEffect(() => {
+    if (!contentRef.current) {
+      return;
+    }
+
+    if (isOpen) {
+      const children = selectAccessibleChildren(contentRef.current);
+      const firstChild = children[0];
+
+      if (!firstChild) {
+        return;
+      }
+
+      firstChild.focus();
+    }
+  }, [isOpen, position, contentRef])
 
   return (
     <div
@@ -21,7 +39,7 @@ function ContextMenuContent({ onContextMenu, className, ...p }: ContextMenuConte
       className={cn(
         "z-50 fixed",
         position ? "transition-all" : "",
-        isOpen ? "" : "ignore",
+        isOpen ? "" : "hidden",
         className
       )}
       style={{

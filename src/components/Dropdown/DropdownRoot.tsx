@@ -30,7 +30,7 @@ function DropdownRoot({ accessHorizontalArrows, onKeyDown, className, ...p }: Dr
     if (isOpen) {
       selectFirstMenuChild();
     }
-  }, [isOpen])
+  }, [isOpen]);
 
   const selectFirstMenuChild = () => {
     if (!menuRef.current) {

@@ -11,7 +11,6 @@ function ContextMenuRoot({ onContextMenu, ...p }: ContextMenuRootPropsT) {
   const [position, setPosition] = useState<ContextMenuContextT["position"]>(undefined);
   const [isOpen, setOpen] = useState(false);
 
-  const rootRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = useCallback((ev: globalThis.MouseEvent) => {
@@ -41,7 +40,7 @@ function ContextMenuRoot({ onContextMenu, ...p }: ContextMenuRootPropsT) {
 
 
   const handleContextMenu = (ev: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => {
-    if (!rootRef.current || !contentRef.current) return;
+    if (!contentRef.current) return;
 
     ev.preventDefault();
 
@@ -73,7 +72,6 @@ function ContextMenuRoot({ onContextMenu, ...p }: ContextMenuRootPropsT) {
           onContextMenu?.(ev);
           handleContextMenu(ev);
         }}
-        ref={rootRef}
         {...p}
       />
     </ContextMenuContext>
