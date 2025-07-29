@@ -54,12 +54,7 @@
 }
 
 @utility btn-soft {
-  @apply bt
-/* Utils */
-@utility btn-link {
-  @apply underline decoration-transparent decoration-0 hover:decoration-palette;
-}
-/* --- */n; /* Extend */
+  @apply btn; /* Extend */
 
   @apply bg-palette/10 text-palette not-active:hover:bg-palette/20;
 }
