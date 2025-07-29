@@ -30,14 +30,14 @@
 
 /* Joins */
 @utility join {
-  @apply f-align *:not-first:rounded-l-none *:not-last:rounded-r-none;
+  @apply f-align ltr:*:not-first:rounded-l-none ltr:*:not-last:rounded-r-none
+  rtl:*:not-first:rounded-r-none rtl:*:not-last:rounded-l-none;
 }
 
-/* TODO: dynamic border color */
 @utility join-border {
   @apply join; /* Extend */
 
-  @apply *:not-first:border-l *:border-background;
+  @apply ltr:*:not-first:border-l rtl:*:not-first:border-r *:border-brush;
 }
 /* --- */
 
