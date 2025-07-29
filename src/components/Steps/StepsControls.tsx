@@ -6,7 +6,7 @@ import StepsContext from "./StepsContext";
 type StepsControlsPropsT = HTMLAttributes<HTMLDivElement>;
 
 function StepsControls({ className, ...props }: StepsControlsPropsT) {
-  const { step, steps, setStep } = use(StepsContext)
+  const { step, steps, setStep } = use(StepsContext);
 
   return (
     <>
@@ -27,7 +27,7 @@ function StepsControls({ className, ...props }: StepsControlsPropsT) {
                 className={`
                   f-align mt-1.5 h-3 w-max text-center text-xs absolute top-full
                   ${step === index + 1 ? "font-bold" : ""}
-                  ${index === 0 ? "left-0" : index + 1 === steps.length ? "right-0" : ""}
+                  ${index === 0 ? "ltr:left-0 rtl:right-0" : index + 1 === steps.length ? "ltr:right-0 rtl:left-0" : ""}
                 `}
               >
                 {item.name}
@@ -38,7 +38,7 @@ function StepsControls({ className, ...props }: StepsControlsPropsT) {
               <div key={index} className="bg-foreground/10 flex h-1.5 flex-1 shrink-0">
                 <div
                   className={`
-                    bg-primary w-full origin-left h-full
+                    bg-primary w-full ltr:origin-left rtl:origin-right h-full
                     ${step > index + 1 ? "scale-x-100" : step === index + 1 ? "scale-x-[50%]" : "scale-x-0"}
                   `}
                 />
