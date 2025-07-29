@@ -17,7 +17,7 @@ function ProgressBar({ className, duration, children, ...p }: ProgressBarPropsT)
 
   return (
     <motion.div
-      className={cn("f-center h-full bg-palette text-brush rounded-full max-w-full", className)}
+      className={cn("f-center h-full bg-palette text-brush max-w-full", className)}
       initial={{ width: 0 }}
       whileInView={{ width: `${percentage}%` }}
       transition={{ duration: duration || 3 }}
