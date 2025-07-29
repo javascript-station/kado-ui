@@ -3,7 +3,7 @@
 }
 
 @utility skeleton {
-  @apply bg-palette/10 rounded-lg animate-pulse;
+  @apply bg-palette/10 rounded-kado animate-pulse;
 }
 
 @utility ignore {

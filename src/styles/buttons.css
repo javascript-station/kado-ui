@@ -6,7 +6,7 @@
   --btn-text: var(--text-base);
   --btn-line: var(--tw-leading, var(--text-base--line-height));
 
-  @apply gap-3 rounded-lg f-center transition-colors outline-solid outline-2 outline-transparent focus-visible:outline-palette
+  @apply gap-3 rounded-kado f-center transition-colors outline-solid outline-2 outline-transparent focus-visible:outline-palette
   disabled:opacity-50 disabled:cursor-not-allowed;
 
   width: var(--btn-w);

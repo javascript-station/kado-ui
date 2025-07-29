@@ -3,7 +3,7 @@
   --badge-h: 1.5rem; /* 6 in tailwind */
   --badge-text: 0.875rem; /* sm in tailwind */
 
-  @apply f-center gap-0.5 px-1.5 rounded-lg w-fit max-w-full bg-palette text-brush;
+  @apply f-center gap-0.5 px-1.5 rounded-kado w-fit max-w-full bg-palette text-brush;
 
   height: var(--badge-h);
   font-size: var(--badge-text);

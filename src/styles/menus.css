@@ -3,7 +3,7 @@
   --menu-size: calc(var(--spacing) * 3);
 
   @apply p-[var(--menu-size)]
-  bg-background-thick backdrop-blur-sm rounded-lg w-fit;
+  bg-background-thick backdrop-blur-sm rounded-kado w-fit;
 }
 /* --- */
 

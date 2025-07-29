@@ -16,7 +16,7 @@ function TabsPanel({ value, className, ...props }: TabsPanelPropsT) {
 
   return isActive ? (
     <div
-      className={cn("p-3 rounded-lg bg-foreground/10 mt-1.5", className)}
+      className={cn("p-3 rounded-kado bg-foreground/10 mt-1.5", className)}
       {...props}
     />
   ) : null

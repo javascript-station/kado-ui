@@ -5,7 +5,7 @@
   --toast-line: var(--tw-leading, var(--text-base--line-height));
 
   @apply h-[var(--toast-h)]
-  px-3 rounded-lg f-align gap-3;
+  px-3 rounded-kado f-align gap-3;
 
   font-size: var(--toast-text);
   line-height: var(--toast-line);

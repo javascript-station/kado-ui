@@ -24,7 +24,7 @@
   --popover-content-line: var(--tw-leading, var(--text-base--line-height));
 
   @apply p-[var(--popover-content-size)]
-  bg-palette text-brush rounded-lg;
+  bg-palette text-brush rounded-kado;
 
   font-size: var(--popover-content-text);
   line-height: var(--popover-content-line);
