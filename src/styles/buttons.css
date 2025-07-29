@@ -65,3 +65,9 @@
   @apply text-palette not-active:hover:bg-palette/10;
 }
 /* --- */
+
+/* Utils */
+@utility btn-link {
+  @apply underline decoration-transparent decoration-0 hover:decoration-palette;
+}
+/* --- */
