@@ -6,7 +6,6 @@ import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion";
 import { cn } from "../../utils/cn";
 import ModalContext from "./ModalContext";
 
-
 type ModalContentPropsT = HTMLMotionProps<"div">;
 
 function ModalContent({ onClick, className, ...props }: ModalContentPropsT) {
