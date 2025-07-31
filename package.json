@@ -5,6 +5,7 @@
   "license": "ISC",
   "author": "javascript-station",
   "type": "module",
+  "packageManager": "pnpm@10.13.1",
   "bin": {
     "kado-ui": "./index.js"
   },
