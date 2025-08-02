@@ -1,19 +1,9 @@
-import { createContext, type Dispatch, type SetStateAction } from "react"
+import { createContext, Dispatch, SetStateAction } from "react";
 
-type ToggleContextT = {
-  isToggled: boolean
-  setToggled: Dispatch<SetStateAction<boolean>>
-  disabled?: boolean
-  size?: "sm" | "md" | "lg"
-  variant?: "default" | "success" | "warning" | "danger"
+export type ToggleContextT = {
+  isToggled: boolean;
+  setToggled: Dispatch<SetStateAction<boolean>>;
+  disabled?: boolean;
 }
 
-const ToggleContext = createContext<ToggleContextT>({
-  isToggled: false,
-  setToggled: () => {},
-  disabled: false,
-  size: "md",
-  variant: "default",
-})
-
-export default ToggleContext
+export const ToggleContext = createContext<ToggleContextT>({} as ToggleContextT);

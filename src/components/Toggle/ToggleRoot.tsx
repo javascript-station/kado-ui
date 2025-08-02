@@ -1,44 +1,26 @@
-"use client"
+"use client";
 
-import { type PropsWithChildren, useState } from "react"
-import ToggleContext from "./ToggleContext"
+import { PropsWithChildren, useState } from "react"
 
-type ToggleRootPropsT = PropsWithChildren & {
-  defaultToggled?: boolean
-  disabled?: boolean
-  size?: "sm" | "md" | "lg"
-  variant?: "default" | "success" | "warning" | "danger"
-  onChange?: (toggled: boolean) => void
+import { ToggleContext } from "./ToggleContext";
+
+export type ToggleRootPropsT = PropsWithChildren & {
+  defaultToggled?: boolean;
+  onChange?: (toggled: boolean) => void;
+  disabled?: boolean;
 }
 
-function ToggleRoot({
-  children,
-  defaultToggled = false,
-  disabled = false,
-  size = "md",
-  variant = "default",
-  onChange,
-}: ToggleRootPropsT) {
+export function ToggleRoot({ children, defaultToggled = false, disabled = false, onChange }: ToggleRootPropsT) {
   const [isToggled, setToggled] = useState(defaultToggled)
 
   const handleToggle = (newValue: boolean) => {
-    setToggled(newValue)
-    onChange?.(newValue)
+    setToggled(newValue);
+    onChange?.(newValue);
   }
 
   return (
-    <ToggleContext
-      value={{
-        isToggled,
-        setToggled:() => handleToggle,
-        disabled,
-        size,
-        variant,
-      }}
-    >
+    <ToggleContext value={{ isToggled, disabled, setToggled: () => handleToggle }}>
       {children}
     </ToggleContext>
   )
 }
-
-export default ToggleRoot
